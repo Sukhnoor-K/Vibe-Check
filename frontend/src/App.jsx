@@ -3,6 +3,7 @@ import JournalForm from './components/JournalForm';
 import JournalEntryCard from './components/JournalEntryCard';
 import RecommendationCard from './components/RecommendationCard';
 import CalendarView from './components/CalendarView';
+import Sidebar from './components/Sidebar';
 import { analyzeEntry, fetchHistory, deleteEntry } from './services/api';
 import { CalendarDaysIcon, BookOpenIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
 import './App.css';
@@ -53,44 +54,17 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Sidebar */}
-      <aside className="sidebar">
-      <div className="sidebar-logo-circle">
-        <h2 className="sidebar-title">Vibe<br />Check</h2>
-      </div>
-        <nav className="nav-container">
-          <button
-            className={`nav-button ${currentView === 'today' ? 'active' : ''}`}
-            onClick={async() => {
-              setCurrentView('today');
-              setSelectedDate(new Date());
+      <Sidebar
+        currentView={currentView}
+        setCurrentView={setCurrentView}
+        setSelectedDate={setSelectedDate}
+        setRecommendation={setRecommendation}
+        refreshHistory={async () => {
+          const data = await fetchHistory();
+          setHistory(data);
+        }}
+      />
 
-              // Refresh history when clicking "Today"
-              const freshData = await fetchHistory();
-              setHistory(freshData);
-            }}
-          >
-            <CalendarDaysIcon className="nav-icon" /> Today
-          </button>
-
-          <button
-            className={`nav-button ${currentView === 'journal' ? 'active' : ''}`}
-            onClick={() => setCurrentView('journal')}
-          >
-            <BookOpenIcon className="nav-icon" /> Journal
-          </button>
-
-          <button
-            className={`nav-button new-entry-btn ${currentView === 'new' ? 'active' : ''}`}
-            onClick={() => {
-              setCurrentView('new');
-              setRecommendation(null);
-            }}
-          >
-            <PencilSquareIcon className="nav-icon" /> New Entry
-          </button>
-        </nav>
-      </aside>
 
       {/* Main Content */}
       <main className="main-content">
