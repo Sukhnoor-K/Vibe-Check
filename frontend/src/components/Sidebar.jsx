@@ -23,7 +23,10 @@ function Sidebar({ currentView, setCurrentView, setSelectedDate, setRecommendati
 
         <button
           className={`nav-button ${currentView === 'journal' ? 'active' : ''}`}
-          onClick={() => setCurrentView('journal')}
+          onClick={async () => {
+            setCurrentView('journal');
+            await refreshHistory(); // trigger reload
+          }}
         >
           <BookOpenIcon className="nav-icon" /> Journal
         </button>
