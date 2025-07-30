@@ -1,0 +1,109 @@
+.calendar-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .react-calendar {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    width:fit-content !important;
+    color: #f0f0f0;
+    font-family: 'Merriweather', serif;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Calendar tile styling */
+  .react-calendar__tile {
+    background-color: #f0f4f838;
+    margin: 4px; /* Increase or adjust as needed */
+    padding: 12px; /* Optional: make the tiles a bit roomier */
+    border-radius: 10px; /* Keep the soft card look */
+    transition: 0.2s ease-in-out;
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  /* Add spacing between calendar tiles */
+.react-calendar__month-view__days {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 10px !important; /* Adjust spacing here */
+    
+    padding: 1rem !important; /* Optional: add padding around the grid */
+  }
+
+
+  
+  .react-calendar__tile:enabled:hover {
+    background-color: #d0e8ff;
+    transform: scale(1.03);
+  }
+  
+  .react-calendar__tile--now {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+  
+  .react-calendar__tile--active {
+    background-color: #ffd6e0 !important;
+    color: #222 !important;
+  }
+
+  .react-calendar__tile:disabled {
+    color: #666 !important;
+  }
+  
+  /* Navigation buttons (prev/next) */
+  .react-calendar__navigation button {
+    background: transparent;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Merriweather', serif;
+  }
+  
+  .react-calendar__navigation button:enabled:hover {
+    background-color: #e3f2fd;
+    border-radius: 6px;
+  }
+
+  /* Brighten the month/year title */
+.react-calendar__navigation button {
+    color: #fffaf5; /* Bright off-white */
+    font-weight: 600;
+  }
+  
+  /* Optional: brighten hover effect on arrows */
+  .react-calendar__navigation button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+
+  .react-calendar__navigation__prev-button,
+.react-calendar__navigation__next-button {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+
+
+
+
+
+
+/* Dim dates outside the current month */
+.react-calendar__month-view__days__day--neighboringMonth {
+    color: rgba(255, 255, 255, 0.3) !important;
+    opacity: 0.5;
+  }
+    .react-calendar__month-view__days__day--neighboringMonth:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
+    }  

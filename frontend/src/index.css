@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+  
+body {
+    margin: 0;
+    background: url('./background.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Orbitron', serif;
+    color: #fff;
+  }
+  
+  a {
+    color: #ffc;
+    text-decoration: none;
+  }
+  
+  

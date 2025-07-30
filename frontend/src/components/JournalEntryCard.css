@@ -1,0 +1,139 @@
+.journal-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem auto;
+  margin-bottom: 2rem !important;
+  max-width: 700px;
+  color: #f0f0f0;
+  font-family: 'Merriweather', serif;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.journal-card:hover {
+  transform: scale(1.01);
+}
+
+/* Album Art Display */
+.album-art-container {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.large-album-art {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Song Info */
+.journal-song-info {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #ffe4ec;
+  margin-right: 2rem !important;
+}
+
+.journal-song-info a {
+  color: #ffe4ec;
+  text-decoration: none;
+  border-bottom: 1px dotted #ffe4ec;
+}
+
+.journal-song-info a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #ffd6e0;
+}
+
+
+.journal-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  color: #fffaf5;
+}
+
+.journal-emotion,
+.journal-timestamp {
+  font-size: 0.95rem;
+  color: #ddd;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-right: 2rem;
+}
+
+.date-square {
+  min-width: 60px;
+  text-align: center;
+  background: #fffffff8;
+  color: #1a1a1a;
+  border-radius: 12px;
+  padding: 0.5rem 0.3rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-family: 'Inter', sans-serif;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.weekday {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.day {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.entry-content {
+  flex: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entry-content {
+  position: relative;
+  padding-bottom: 2rem; /* space for the button */
+}
+
+.delete-btn-wrapper {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  color: #f2f2f2;
+  transition: color 0.2s ease;
+}
+
+.delete-btn:hover .trash-icon {
+  color: red;
+}
+
+.trash-icon {
+  pointer-events: none;
+}
