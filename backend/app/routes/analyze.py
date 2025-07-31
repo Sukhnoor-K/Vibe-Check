@@ -31,5 +31,6 @@ def analyze():
 
     return jsonify({
         'emotion': emotion,
-        'song': song
+        'song': song,
+        'id': entry.id
     })

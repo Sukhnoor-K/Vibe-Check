@@ -39,3 +39,4 @@ htmlcov/
 # === Editor configs ===
 *.code-workspace
 .idea/
+.cache

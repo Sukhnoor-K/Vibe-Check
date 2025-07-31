@@ -3,3 +3,11 @@ Flask-SQLAlchemy
 flask-cors
 textblob
 psycopg2-binary
+pytest
+pytest-flask
+coverage
+transformers
+torch
+spotipy
+dotenv
+numpy < 2.0.0
