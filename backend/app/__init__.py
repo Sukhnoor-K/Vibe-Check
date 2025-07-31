@@ -12,7 +12,7 @@ def create_app(config_override=None):
     # Init DB AFTER config is loaded
     db.init_app(app)
 
-    frontend_origin = app.config.get("FRONTEND_ORIGIN", "http://localhost:5173")
+    frontend_origin = app.config.get("FRONTEND_ORIGIN", "http://localhost:5173", "https://vibe-check-frontend-ygoo.onrender.com")
     CORS(app, origins=frontend_origin)
 
     with app.app_context():
