@@ -14,10 +14,11 @@ jobs:
       postgres:
         image: postgres:13
         env:
-          POSTGRES_USER:  ${{ secrets.DB_USER }}
+          POSTGRES_USER: ${{ secrets.DB_USER }}
           POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
           POSTGRES_DB: vibecheck
-        ports: ['5432:5432']
+        ports:
+          - 5432:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -26,40 +27,41 @@ jobs:
 
     env:
       DATABASE_URL: postgresql://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost:5432/vibecheck
+      PYTHONPATH: ${{ github.workspace }}/backend
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # === Backend ===
+      # === Backend Setup ===
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
 
       - name: Install backend dependencies
+        working-directory: backend
         run: |
           python -m venv venv
           source venv/bin/activate
-          pip install -r backend/requirements.txt
+          pip install -r requirements.txt
 
       - name: Run backend tests
+        working-directory: backend
         run: |
           source venv/bin/activate
-          pytest backend/tests
+          pytest tests
 
-      # === Frontend ===
+      # === Frontend Setup ===
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: Install frontend dependencies
-        run: |
-          cd frontend
-          npm ci
+        working-directory: frontend
+        run: npm ci
 
       - name: Build frontend
-        run: |
-          cd frontend
-          npm run build
+        working-directory: frontend
+        run: npm run build
